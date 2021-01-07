@@ -52,34 +52,7 @@
   }
 }
 
-.form-group {
-  &--required {
-    label:after {
-      content: '*';
-      color: $red;
-    }
-  }
-
-  &--center {
-    @include flex-center;
-  }
-}
-
-.service {
-  height: 40px;
-  width: 200px;
-  border: 1px solid $black;
-  margin: 5px auto;
-  padding: 5px;
-
-  &__item {
-    @include flex-center-ver;
-    color: $black;
-  }
-
-  &__avatar {
-    width: 30px;
-    height: 30px;
-    margin-right: 10px;
-  }
+.btn-submit {
+  @include flex-center;
+  margin: 10px auto;
 }

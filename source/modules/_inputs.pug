@@ -2,16 +2,24 @@
 //- Modules :: Form
 //-------------------------------------------------------
 
-mixin input-text({label, id, type})
-  label(for=id)= label
-  input.form-control(
-    type=type 
-    id=id
+mixin input-text({label, id, type, required, error})
+  .form-group(
+    class= required ? 'form-group--required' : null
+    class= error ? 'form-group--error' : null
   )
+    label(for=id)= label
+    input.form-control(
+      type=type 
+      id=id
+    )
+    if (error)
+      p.form-error= error
     
-mixin checkbox({label, id})
-  input.form-check-input(
-    type='checkbox'
-    id=id
-  )
-  label.form-check-label(for=id)= label
+mixin checkbox({label, checked, id, disabled, name})
+  label.checkbox(for= id).d-flex.align-items-center&attributes(attributes)
+    if checked === true
+      input.input-checkbox(type='checkbox', name= name, id= id, checked='checked', disabled= disabled)
+    else
+      input.input-checkbox(type='checkbox', name= name, id= id, disabled= disabled)
+    span.checkmark
+    span= label
