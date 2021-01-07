@@ -8,8 +8,14 @@
   color: $white;
   padding: 10px;
   border: 1px solid $black;
+  min-width: 100px;
 
   &:hover {
     color: $white;
+  }
+
+  &--submit {
+    background-color: $blue;
+    border-color: $blue;
   }
 }

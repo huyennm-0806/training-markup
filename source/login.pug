@@ -4,4 +4,63 @@ block head
   +head('Login')
 
 block main
-  h1 Page login
+  .login
+    .login__header
+      a.login__link(href="#") Logo
+    .login__content
+      h2.title.title--bigger Login
+      .login__block
+        form
+          .form-group.form-group--required
+            +input-text({
+              label: "Mail address",
+              id: "email",
+              type: "email"
+            })
+          .form-group.form-group--required
+            +input-text({
+              label: "Password",
+              id: "password",
+              type: "password"
+            })
+          .form-group.form-group--center
+            .form-check
+              +checkbox({
+                label: "Remember login",
+                id: "remember-login"
+              })
+          .form-group.form-group--center
+            +buttons({
+              text: "Login",
+              type: "submit"
+            })
+        a.login__link.login__link--blue(href="") Forgot password 
+        a.login__link.login__link--red(href="") Create account
+      .login__block
+        p.title Login with other services
+        -
+          var services = [
+            {
+              image: "https://cdn3.iconfinder.com/data/icons/inficons/512/apple.png",
+              text: "Login with Apple ID"
+            },
+            {
+              image: "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQKUdWhKM3iBY-MQjfuwXtUoQsc12bHZIVwpg&usqp=CAU",
+              text: "Login with Line ID"
+            },
+            {
+              image: "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQGrnugaQtmuZ3M1ojubGMWdPMlb2VF0RRKPw&usqp=CAU",
+              text: "Login with Twitter ID"
+            },
+            {
+              image: "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcRf7uwYXP8ZUQVjeX6ylcoqaM3x3xQyjKMv1Q&usqp=CAU",
+              text: "Login with Facebook ID"
+            }
+          ]
+        each item in services
+          .service
+            a.service__item(href="#")
+              img.service__avatar(src=item.image)
+              p= item.text
+      | Footer
+      
