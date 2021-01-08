@@ -8,8 +8,30 @@
   color: $white;
   padding: 10px;
   border: 1px solid $black;
+  min-width: 100px;
 
   &:hover {
     color: $white;
+  }
+
+  &--submit {
+    background-color: $blue;
+    border-color: $blue;
+  }
+}
+
+.button-image {
+  height: 40px;
+  width: 200px;
+  border: 1px solid $black;
+  margin: 5px auto;
+  padding: 5px;
+  @include flex-center-ver;
+  color: $black;
+
+  img {
+    width: 30px;
+    height: 30px;
+    margin-right: 10px;
   }
 }

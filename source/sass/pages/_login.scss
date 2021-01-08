@@ -1,0 +1,58 @@
+// ======================================================
+// Pages :: Login
+// ======================================================
+
+.login {
+  width: 375px;
+  margin: 50px auto;
+  border: 1px solid $black;
+  border-radius: 5px;
+
+  &__header {
+    @include flex-center;
+    font-weight: 700;
+    height: 50px;
+    border-bottom: 1px solid $black;
+  }
+
+  &__link {
+    @include flex-center;
+    color: $black;
+
+    &--blue {
+      color: $blue;
+    }
+
+    &--red {
+      color: $red;
+    }
+  }
+
+  &__content {
+    padding: 10px 20px;
+    width: 100%;
+    text-align: left;
+  }
+
+  &__block {
+    border-bottom: 1px solid $black;
+    padding-bottom: 10px;
+    margin: 10px auto;
+  }
+}
+
+.title {
+  font-weight: 700;
+  padding-bottom: 5px;
+  @include flex-center;
+
+  &--bigger {
+    justify-content: flex-start;
+    border-bottom: 1px solid $black;
+  }
+}
+
+.btn-submit {
+  @include flex-center;
+  margin: 10px auto;
+}

@@ -1,0 +1,75 @@
+//-------------------------------------------------------
+//- Styleguides :: Inputs
+//-------------------------------------------------------
+
+//- Input text :: Type
+h2 Input text types
+-
+  var inputTextTypes = [
+    { 
+      label: 'Email',
+      id: 'email',
+      type: 'email' 
+    },
+    { 
+      label: 'Password',
+      id: 'password',
+      type: 'password'
+    },
+    { 
+      label: 'Input required',
+      id: 'input-required',
+      type: 'text',
+      required: true
+    },
+    { 
+      label: 'Input error',
+      id: 'input-error',
+      type: 'text',
+      error: 'Data invalid'
+    },
+  ];
+.row
+  each val in inputTextTypes
+    .col-3
+      .code-example
+        .demo
+          +input-text({
+            label: val.label,
+            id: val.id,
+            type: val.type,
+            required: val.required,
+            error: val.error
+          })
+        pre
+          code
+            | +input-text({
+            |   label: '#{val.label}',
+            |   id: '#{val.id}',
+            |   type: '#{val.type}',
+            |   required: '#{val.required}',
+            |   error: '#{val.error}'
+            | })
+h2 Checkbox types
+-
+  var checkboxTypes = [
+    { 
+      label: 'Remember login',
+      id: 'remember-login'
+    }
+  ];
+.row
+  each val in checkboxTypes
+    .col-3
+      .code-example
+        .demo
+          +checkbox({
+            label: val.label,
+            id: val.id
+          })
+        pre
+          code
+            | +checkbox({
+            |   label: '#{val.label}',
+            |   id: '#{val.id}'
+            | })
