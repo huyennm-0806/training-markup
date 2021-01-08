@@ -18,6 +18,11 @@
     background-color: $blue;
     border-color: $blue;
   }
+
+  &--primary {
+    background-color: $blue;
+    border-color: $blue;
+  }
 }
 
 .button-image {
@@ -28,6 +33,7 @@
   padding: 5px;
   @include flex-center-ver;
   color: $black;
+  background: $white;
 
   img {
     width: 30px;

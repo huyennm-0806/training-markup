@@ -1,0 +1,20 @@
+//-------------------------------------------------------
+//- Modules :: Steps
+//-------------------------------------------------------
+
+mixin steps(numberSteps, currentStep)
+  .d-flex.justify-content-between
+    - currentStep = currentStep ? currentStep : 1
+    each _, i in Array(numberSteps)
+      +step({
+        number: i + 1,
+        current: i + 1 == currentStep,
+        width: (100 - numberSteps)/numberSteps
+      })
+        
+mixin step({number, current, width})
+  .step.justify-content-end(
+    class= current  ? 'step__current' : null
+    style={width: `${width}%`}
+  )
+    span.step__label= `Step ${number}`

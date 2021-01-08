@@ -1,0 +1,220 @@
+extends modules/layout/_page-other
+
+block head
+  +head('Register')
+
+block main
+  .block-container.d-flex.justify-content-center.align-items-center
+    .register
+      .register__header
+        a.register__link(href='#') Logo
+      .register__content
+        h2.title.title--bigger Register
+        +steps(5)
+        .step-content
+          .register__block
+            p Enter your mail address and press the button Send
+            form.register-form
+              .register__group
+                +input-text({
+                  label: 'Mail address',
+                  id: 'email',
+                  type: 'email',
+                  required: true
+                })
+              .btn-submit
+                +buttons({
+                  text: 'Send email',
+                  type: 'submit'
+                }).next
+          .register__block
+            p.title Login with other services
+            -
+              var services = [
+                {
+                  image: 'https://cdn3.iconfinder.com/data/icons/inficons/512/apple.png',
+                  text: 'Login with Apple ID'
+                },
+                {
+                  image: 'https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQKUdWhKM3iBY-MQjfuwXtUoQsc12bHZIVwpg&usqp=CAU',
+                  text: 'Login with Line ID'
+                },
+                {
+                  image: 'https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQGrnugaQtmuZ3M1ojubGMWdPMlb2VF0RRKPw&usqp=CAU',
+                  text: 'Login with Twitter ID'
+                },
+                {
+                  image: 'https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcRf7uwYXP8ZUQVjeX6ylcoqaM3x3xQyjKMv1Q&usqp=CAU',
+                  text: 'Login with Facebook ID'
+                }
+              ]
+            each item in services
+              +button-image({
+                imageUrl: item.image,
+                text: item.text
+              })
+        
+        .step-content
+          .register__block
+            h5 Send mail confirm
+            .register__group
+              label.font-weight-bold Mail address
+              p sample@gmail.com
+            +buttons({
+              text: 'Next',
+              type: 'submit'
+            }).next
+        .step-content
+          .register__block
+            .title.title--bigger Account info
+            form.register-form
+              .register__group
+                .form-group
+                  label.font-weight-bold Mail address
+                  p sample@gmail.com
+                +input-text({
+                  label: 'Password',
+                  id: 'password',
+                  type: 'password',
+                  notice: '* Password must include character and number',
+                  required: true
+                })
+                .form-group
+                  label.font-weight-bold.required Gender
+                  .d-flex
+                    each val, i in ['Male', 'Female']
+                      +radio({
+                        label: val,
+                        id: val,
+                        name: 'gender-radio',
+                        checked: i == 0
+                      }).mr-3
+                +multi-input-text({
+                  label: 'Birthday',
+                  inputLabels: ['Year', 'Month', 'Day'],
+                  ids: ['year', 'month', 'day'],
+                  type: 'number',
+                  error: 'Invalid',
+                  required: true
+                })
+                +multi-input-text({
+                  label: 'Zip code',
+                  inputLabels: ['-'],
+                  ids: ['zip-code1', 'zip-code2'],
+                  type: 'number',
+                  required: true
+                })
+                .form-group
+                  label.font-weight-bold.required Register user type
+                  .d-flex.flex-wrap
+                    - 
+                      var registerUserTypes = [
+                        {
+                          name: 'Personal',
+                          id: 'personal'
+                        },
+                        {
+                          name: 'Protector',
+                          id: 'protector'
+                        },
+                        {
+                          name: 'Person of school',
+                          id: 'person-school'
+                        },
+                        {
+                          name: 'Other',
+                          id: 'other'
+                        }
+                      ]
+                    each item, i in registerUserTypes
+                      +radio({
+                        label: item.name,
+                        id: item.id,
+                        name: 'register-user-type',
+                        checked: i == 0
+                      }).mr-3.mb-2
+                  p.form-notice * Notice of register user
+                .form-group
+                  label.font-weight-bold Notification
+                  +checkbox({
+                    label: 'Receive notification via mail',
+                    id: 'notice-mail'
+                  })
+                  p.form-notice * Notice of Notification
+                  +checkbox({
+                    label: 'Receive notification via post office',
+                    id: 'notice-post-office'
+                  })
+              .btn-submit
+                +buttons({
+                  text: 'Agree Terms and continue',
+                  type: 'primary'
+                }).next
+            p.font-weight-bold Terms of use and privacy policy
+            .register__group
+              | Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. 
+              | Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. 
+              | Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur.
+            .d-flex.justify-content-center
+              +buttons({
+                text: 'Back',
+                type: 'secondary'
+              }).back
+        .step-content 
+          .register__block
+            .title.title--bigger Account info
+            .register__group
+              -
+                var accountInfo = [
+                  {
+                    label: 'Name',
+                    text: 'sample@gmail.com'
+                  },
+                  {
+                    label: 'Password',
+                    text: 'Do not show up for security'
+                  },
+                  {
+                    label: 'Gender',
+                    text: 'Male'
+                  },
+                  {
+                    label: 'Birthday',
+                    text: '11/1/2000'
+                  },
+                  {
+                    label: 'Zip code',
+                    text: '222-33333'
+                  },
+                  {
+                    label: 'Register user type',
+                    text: 'Personal'
+                  }
+                ]
+              each item in accountInfo
+                .form-group
+                  label.font-weight-bold= item.label
+                  p= item.text
+            .btn-submit
+              +buttons({
+                text: 'Next',
+                type: 'submit'
+              }).next
+            .d-flex.justify-content-center
+              +buttons({
+                text: 'Back',
+                type: 'secondary'
+              }).back
+        .step-content
+          .register__block
+            .register__group.d-flex.flex-column.justiy-content-center.align-items-center
+              .register__notice-success.d-flex.flex-column.align-items-center
+                p You has been created account.
+                p Thank you
+              +buttons-link({
+                text: 'Start study',
+                type: 'primary',
+                href: '#'
+              }).mb-2
+              a.mb-2(href="#") Go to Top page
+        footer.footer Footer
