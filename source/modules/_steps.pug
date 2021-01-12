@@ -14,7 +14,8 @@ mixin steps(numberSteps, currentStep)
         
 mixin step({number, current, width})
   .step.justify-content-end(
-    class= current  ? 'step__current' : null
+    id=`step${number}-label`
+    class= current  ? 'step--current' : null
     style={width: `${width}%`}
   )
     span.step__label= `Step ${number}`

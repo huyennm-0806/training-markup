@@ -22,6 +22,7 @@
 // ---------
 @import 'layout/header';
 @import 'layout/footer';
+@import 'layout/page-auth';
 
 // 5. Components
 // -------------
@@ -33,7 +34,6 @@
 // 6. Pages
 // --------
 @import 'pages/home';
-@import 'pages/login';
 @import 'pages/register';
 
 // 7. Themes

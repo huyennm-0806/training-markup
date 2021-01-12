@@ -5,12 +5,11 @@
 mixin input-text({label, id, type, required, error, notice})
   .form-group(
     class= error ? 'form-group--error' : null
-  )
-    if (label)
-      label.font-weight-bold(
-        class= required ? 'required' : null
-        for=id
-      )= label
+  )&attributes(attributes)
+    label.font-weight-bold(
+      class= required ? 'required' : null
+      for=id
+    )= label
     input.form-control(
       type=type 
       id=id
@@ -23,7 +22,7 @@ mixin input-text({label, id, type, required, error, notice})
 mixin multi-input-text({label, inputLabels, ids, type, required, error, notice})
   .form-group(
     class= error ? 'form-group--error' : null
-  )
+  )&attributes(attributes)
     label.font-weight-bold(
       class= required ? 'required' : null
       for=ids[0]

@@ -2,49 +2,8 @@
 // Pages :: Register
 // ======================================================
 
-.register {
-  max-width: 375px;
-  width: 100%;
-  margin: 0 15px;
-  border: 1px solid $black;
-  border-radius: 5px;
-
-  &__header {
-    @include flex-center;
-    font-weight: 700;
-    height: 50px;
-    border-bottom: 1px solid $black;
-  }
-
-  &__link {
-    @include flex-center;
-    color: $black;
-  }
-
-  &__content {
-    padding: 10px 20px;
-    width: 100%;
-    text-align: left;
-    background: $light-gray;
-  }
-
-  &__block {
-    border-bottom: 1px solid $black;
-    padding-bottom: 10px;
-    margin: 10px auto;
-  }
-
-  &__group {
-    padding: 10px;
-    background-color: $white;
-    margin: 10px 0;
-  }
-
-  &__notice-success {
-    margin: 10px 0;
-  }
-
-  .form-group {
+.form-group {
+  &--border {
     border-bottom: 1px solid $light-gray;
     padding-bottom: 10px;
 
@@ -53,21 +12,4 @@
       padding-bottom: 0;
     }
   }
-
-  .multi-inputs {
-    .form-group {
-      border: none;
-      padding: 0;
-      margin: 0;
-    }
-  }
-}
-
-.register-form {
-  margin: 10px auto;
-}
-
-.step-content {
-  margin: 10px 0;
-  display: none;
 }
