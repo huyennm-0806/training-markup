@@ -28,10 +28,10 @@ mixin buttons-link({ href, text, type, size, isFull, iconFont, iconImage, imageU
     role='button'
   )&attributes(attributes)
     if (iconFont !== '' && iconFont !== undefined)
-      +icon-fonts(iconFont)(class='button__icon')
+      +icon-fonts(iconFont)(class='button-link__icon')
     if (iconImage !== '' && iconImage !== undefined)
-      +icon-images(iconImage)(class='button__icon')
+      +icon-images(iconImage)(class='button-link__icon')
     if (imageUrl !== '' && imageUrl !== undefined)
       img.button-link__image(src=imageUrl)
-    span.button__text
+    span.button-link__text
       | #{text}

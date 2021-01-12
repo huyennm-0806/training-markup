@@ -5,7 +5,9 @@ block head
 
 block main
   .auth__header
-    a.auth__link(href='#') Logo
+    +buttons-link({
+      text: 'Logo'
+    })
   .auth__content
     h2.auth-title Login
     .auth-block
@@ -37,7 +39,7 @@ block main
       +buttons-link({
         type: 'blue',
         text: 'Forgot password'
-      }).justify-content-center
+      }).justify-content-center.mt-1
       +buttons-link({
         type: 'red',
         text: 'Create account'

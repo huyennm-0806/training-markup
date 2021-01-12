@@ -3,6 +3,7 @@
 // ======================================================
 
 .block-container {
+  @include flex-center;
   min-height: 100vh;
 }
 
@@ -62,4 +63,9 @@
     margin: 10px 0;
     display: none;
   }
+}
+
+.form-control:focus {
+  box-shadow: none;
+  border-color: $gray;
 }

@@ -5,9 +5,11 @@ block head
 
 block main
   .auth__header
-    a.auth__link(href='#') Logo
+    +buttons-link({
+      text: 'Register'
+    })
   .auth__content
-    h2.header-title.d-flex Register
+    h2.auth-title Register
     +steps(5)
     #step1.auth-block.auth-block--step
       p Enter your mail address and press the button Send
