@@ -19,24 +19,19 @@ mixin buttons({ text, type, size, isFull, iconFont, iconImage, modal, modalId, f
     span.button__text
       | #{text}
 
-mixin buttons-link({ href, text, type, size, isFull, iconFont, iconImage })
-  a.button(
-    class= type ? `button--${type}` : null
-    class= size ? `button--${size}` : null
-    class= (isFull === true) ? 'button--full' : null
+mixin buttons-link({ href, text, type, size, isFull, iconFont, iconImage, imageUrl })
+  a.button-link(
+    class= type ? `button-link--${type}` : null
+    class= size ? `button-link--${size}` : null
+    class= (isFull === true) ? 'button-link--full' : null
     href= href ? href : '#'
     role='button'
   )&attributes(attributes)
     if (iconFont !== '' && iconFont !== undefined)
-      +icon-fonts(iconFont)(class='button__icon')
+      +icon-fonts(iconFont)(class='button-link__icon')
     if (iconImage !== '' && iconImage !== undefined)
-      +icon-images(iconImage)(class='button__icon')
-    span.button__text
+      +icon-images(iconImage)(class='button-link__icon')
+    if (imageUrl !== '' && imageUrl !== undefined)
+      img.button-link__image(src=imageUrl)
+    span.button-link__text
       | #{text}
-      
-mixin button-image({ href, text, imageUrl })
-  a.button-image(
-    href= href ? href : '#'
-  )
-    img(src=imageUrl)
-    span= text

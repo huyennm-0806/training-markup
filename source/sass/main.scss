@@ -22,17 +22,19 @@
 // ---------
 @import 'layout/header';
 @import 'layout/footer';
+@import 'layout/page-auth';
 
 // 5. Components
 // -------------
 @import 'components/table';
 @import 'components/button';
 @import 'components/input';
+@import 'components/step';
 
 // 6. Pages
 // --------
 @import 'pages/home';
-@import 'pages/login';
+@import 'pages/register';
 
 // 7. Themes
 // ---------

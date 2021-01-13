@@ -50,12 +50,65 @@ h2 Input text types
             |   required: '#{val.required}',
             |   error: '#{val.error}'
             | })
+            
+h2 Multi input text types
+-
+  var multiInputTextTypes = [
+    { 
+      label: 'Birthday',
+      inputLabels: ['Year', 'Month', 'Day'],
+      ids: ['year', 'month', 'day'],
+      type: 'number'
+    },
+    { 
+      label: 'Multi inputs error',
+      inputLabels: ['Year', 'Month', 'Day'],
+      ids: ['year', 'month', 'day'],
+      type: 'number',
+      error: 'Invalid'
+    },
+    { 
+      label: 'Multi inputs required',
+      inputLabels: ['Year', 'Month', 'Day'],
+      ids: ['year', 'month', 'day'],
+      type: 'number',
+      required: true
+    }
+  ];
+.row
+  each val in multiInputTextTypes
+    .col-3
+      .code-example
+        .demo
+          +multi-input-text({
+            label: val.label,
+            inputLabels: val.inputLabels,
+            ids: val.ids,
+            type: val.type,
+            required: val.required,
+            error: val.error
+          })
+        pre
+          code
+            | +input-text({
+            |   label: '#{val.label}',
+            |   inputLabels: '#{val.inputLabels}',
+            |   ids: '#{val.ids}',
+            |   type: '#{val.type}',
+            |   required: '#{val.required}',
+            |   error: '#{val.error}'
+            | })
 h2 Checkbox types
 -
   var checkboxTypes = [
     { 
-      label: 'Remember login',
-      id: 'remember-login'
+      label: 'Checkbox uncheck',
+      id: 'checkbox-uncheck'
+    },
+    { 
+      label: 'Checkbox checked',
+      id: 'checkbox-checked',
+      checked: true
     }
   ];
 .row
@@ -65,11 +118,44 @@ h2 Checkbox types
         .demo
           +checkbox({
             label: val.label,
-            id: val.id
+            id: val.id,
+            checked: val.checked
           })
         pre
           code
             | +checkbox({
             |   label: '#{val.label}',
-            |   id: '#{val.id}'
+            |   id: '#{val.id}',
+            |   checked: '#{val.checked}'
+            | })
+            
+h2 Radio button types
+-
+  var radioButtonTypes = [
+    { 
+      label: 'Radio uncheck',
+      id: 'radio-uncheck'
+    },
+    { 
+      label: 'Radio checked',
+      id: 'radio-checked',
+      checked: true
+    }
+  ];
+.row
+  each val in radioButtonTypes
+    .col-3
+      .code-example
+        .demo
+          +radio({
+            label: val.label,
+            id: val.id,
+            checked: val.checked
+          })
+        pre
+          code
+            | +radio({
+            |   label: '#{val.label}',
+            |   id: '#{val.id}',
+            |   checked: '#{val.checked}'
             | })

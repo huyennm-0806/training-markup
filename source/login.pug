@@ -1,16 +1,18 @@
-extends modules/layout/_page-other
+extends modules/layout/_page-auth
 
 block head
   +head('Login')
 
 block main
-  .login
-    .login__header
-      a.login__link(href='#') Logo
-    .login__content
-      h2.title.title--bigger Login
-      .login__block
-        form
+  .auth__header
+    +buttons-link({
+      text: 'Logo'
+    })
+  .auth__content
+    h2.auth-title Login
+    .auth-block
+      form
+        .auth-block__group
           +input-text({
             label: 'Mail address',
             id: 'email',
@@ -24,43 +26,50 @@ block main
             type: 'password',
             required: true
           })
-          +checkbox({
-            label: 'Remember login',
-            id: 'remember-login',
-            position: 'center'
+        +checkbox({
+          label: 'Remember login',
+          id: 'remember-login',
+          position: 'center'
+        })
+        .auth-block__button
+          +buttons({
+            text: 'Login',
+            type: 'submit'
           })
-          .btn-submit
-            +buttons({
-              text: 'Login',
-              type: 'submit'
-            })
-        a.login__link.login__link--blue(href='') Forgot password 
-        a.login__link.login__link--red(href='') Create account
-      .login__block
-        p.title Login with other services
-        -
-          var services = [
-            {
-              image: 'https://cdn3.iconfinder.com/data/icons/inficons/512/apple.png',
-              text: 'Login with Apple ID'
-            },
-            {
-              image: 'https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQKUdWhKM3iBY-MQjfuwXtUoQsc12bHZIVwpg&usqp=CAU',
-              text: 'Login with Line ID'
-            },
-            {
-              image: 'https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQGrnugaQtmuZ3M1ojubGMWdPMlb2VF0RRKPw&usqp=CAU',
-              text: 'Login with Twitter ID'
-            },
-            {
-              image: 'https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcRf7uwYXP8ZUQVjeX6ylcoqaM3x3xQyjKMv1Q&usqp=CAU',
-              text: 'Login with Facebook ID'
-            }
-          ]
-        each item in services
-          +button-image({
-            imageUrl: item.image,
-            text: item.text
-          })
-      | Footer
-      
+      +buttons-link({
+        type: 'blue',
+        text: 'Forgot password'
+      }).justify-content-center.mt-1
+      +buttons-link({
+        type: 'red',
+        text: 'Create account'
+      }).justify-content-center
+    .auth-block
+      p.auth-block__title Login with other services
+      -
+        var services = [
+          {
+            image: 'https://cdn3.iconfinder.com/data/icons/inficons/512/apple.png',
+            text: 'Login with Apple ID'
+          },
+          {
+            image: 'https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQKUdWhKM3iBY-MQjfuwXtUoQsc12bHZIVwpg&usqp=CAU',
+            text: 'Login with Line ID'
+          },
+          {
+            image: 'https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQGrnugaQtmuZ3M1ojubGMWdPMlb2VF0RRKPw&usqp=CAU',
+            text: 'Login with Twitter ID'
+          },
+          {
+            image: 'https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcRf7uwYXP8ZUQVjeX6ylcoqaM3x3xQyjKMv1Q&usqp=CAU',
+            text: 'Login with Facebook ID'
+          }
+        ]
+      each item in services
+        +buttons-link({
+          imageUrl: item.image,
+          text: item.text,
+          type: 'image'
+        })
+    | Footer
+  

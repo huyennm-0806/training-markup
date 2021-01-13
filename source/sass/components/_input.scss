@@ -3,10 +3,15 @@
 // ======================================================
 
 .form-group {
-  &--required {
-    label:after {
-      content: '*';
-      color: $red;
+  .required {
+    &:after {
+      content: 'Required';
+      background: $red;
+      color: $white;
+      margin-left: 3px;
+      padding: 3px 5px;
+      font-size: 10px;
+      border-radius: 3px;
     }
   }
 
@@ -15,6 +20,10 @@
       border-color: $red;
     }
   }
+
+  &:last-child {
+    margin-bottom: 0;
+  }
 }
 
 .form-error {
@@ -22,13 +31,17 @@
   margin-top: 5px;
 }
 
+.form-notice {
+  font-size: 12px;
+  margin-top: 5px;
+}
+
 .checkbox {
   position: relative;
   padding-left: 30px;
   cursor: pointer;
-  font-weight: $font-weight-bold;
-  margin-bottom: 0;
   line-height: 18px;
+  margin-top: 5px;
 
   input {
     position: absolute;
@@ -58,6 +71,47 @@
       border: 1px solid $white;
       border-width: 0 3px 3px 0;
       transform: rotate(45deg);
+    }
+  }
+
+  input:checked ~ .checkmark:after {
+    display: block;
+  }
+}
+
+.radio {
+  position: relative;
+  padding-left: 25px;
+  cursor: pointer;
+  margin-bottom: 0;
+  line-height: 18px;
+
+  input {
+    position: absolute;
+    opacity: 0;
+    cursor: pointer;
+    @include size(0, 0);
+    z-index: -1;
+  }
+
+  .checkmark {
+    left: 0;
+    @include size(16px, 16px);
+    border: 1px solid $black;
+    @include abs-center-ver;
+    border-radius: 50%;
+
+    &:after {
+      width: 10px;
+      height: 10px;
+      border-radius: 50%;
+      position: absolute;
+      top: 50%;
+      transform: translateY(-50%);
+      left: 2px;
+      content: '';
+      background: $blue;
+      display: none;
     }
   }
 

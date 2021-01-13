@@ -1,0 +1,15 @@
+// ======================================================
+// Pages :: Register
+// ======================================================
+
+.form-group {
+  &--border {
+    border-bottom: 1px solid $light-gray;
+    padding-bottom: 10px;
+
+    &:last-child {
+      border: none;
+      padding-bottom: 0;
+    }
+  }
+}
